@@ -16,7 +16,13 @@ public class SuperArray{
       size+=1;
       return true;
     }
-    
-
-    }
   }
+  public String get(int index){
+    return data[index];
+  }
+  public String set(int index, String element){
+    String temp=data[index];
+    data[index]=element;
+    return temp;
+  }
+}
