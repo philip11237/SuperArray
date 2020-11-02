@@ -10,12 +10,11 @@ public class SuperArray{
   }
   public boolean add(String element){
     if (size>=data.length){
-      return false;
-    }else {
+        resize();
+    }
       data[size]=element;
       size+=1;
       return true;
-    }
   }
   public String get(int index){
     return data[index];
@@ -24,5 +23,13 @@ public class SuperArray{
     String temp=data[index];
     data[index]=element;
     return temp;
+  }
+  private void resize(){
+   String[] temp= data;
+   data= new String[data.length*2];
+   for (int i =0; i<temp.length;i++){
+     data[i]=temp[i];
+   }
+
   }
 }
