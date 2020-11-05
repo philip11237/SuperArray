@@ -53,7 +53,7 @@ public class SuperArray{
     public boolean contains(String s){
       for (int i = 0; i <size; i++) {
         if ((data[i] != null)&& (data[i].equals(s))
-      ||((s==null)&& data[i]==s)){
+        ||((s==null)&& data[i]==s)){
           return true;
         }
       }
@@ -63,34 +63,42 @@ public class SuperArray{
       if (size==data.length){
         resize();
       }
-       for (int i =size; i>index; i--) {
+      for (int i =size; i>index; i--) {
         data[i]=data[i-1];
       }
       data[index]=element;
       size++;
     }
     public String remove(int index){
-        String temp=data[index];
-       for (int i =index; i <size-1; i++) {
+      String temp=data[index];
+      for (int i =index; i <size-1; i++) {
         data[i]=data[i+1];
       }
       size--;
       return temp;
     }
-     public int indexOf(String s){
-       for (int i =0; i<size; i++) {
-         if ( (data[i] != null)&& (data[i].equals(s))
-       ||((s==null)&& data[i]==s)){
-         return i;
-       }
-     }
-       return -1;
-   }
-   public String[] toArray(){
-     String[] returndata= new String[size];
+    public int indexOf(String s){
+      for (int i =0; i<size; i++) {
+        if ( (data[i] != null)&& (data[i].equals(s))
+        ||((s==null)&& data[i]==s)){
+          return i;
+        }
+      }
+      return -1;
+    }
+    public String[] toArray(){
+      String[] returndata= new String[size];
       for (int i =0; i <size; i++) {
         returndata[i]= data[i];
-   }
-   return returndata;
- }
+      }
+      return returndata;
+    }
+    public static void removeDuplicates(SuperArray s){
+      for (int i =0; i <s.size();) {
+        if (s.indexOf(s.get(i)) !=i){
+          s.remove(i);
+        }
+        else i++;
+      }
+    }
   }
