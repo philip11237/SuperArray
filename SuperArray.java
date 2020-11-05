@@ -5,6 +5,10 @@ public class SuperArray{
     size =0;
     data=new String[10];
   }
+  public SuperArray(int initialCapacity){
+    size=0;
+    data= new String[initialCapacity];
+  }
   public int size(){
     return size;
   }
@@ -54,4 +58,23 @@ public class SuperArray{
       }
       return false;
     }
+    public void add(int index, String element){
+      if (size==data.length){
+        resize();
+      }
+       for (int i =index; i<size; i++) {
+        data[index+1]=data[index];
+      }
+      data[index]=element;
+      size++;
+    }
+    public void remove(int index, String element){
+        String temp=data[index];
+       for (int i =index; i <size-1; i++) {
+        data[index]=data[index+1];
+      }
+      size--;
+      return temp;
+    }
+
   }
