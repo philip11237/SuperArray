@@ -30,6 +30,21 @@ public class SuperArray{
    for (int i =0; i<temp.length;i++){
      data[i]=temp[i];
    }
+ }
+   public boolean isEmpty(){
+    return  size>0;
+   }
+   public void clear(){
+     size=0;
+   }
+   public String toString(){
 
-  }
+     String empty = "{";
+     for (int i = 0; i <size; i++) {
+       if (i==size-1){
+         empty += data[i];}
+         else {empty += data[i]+", ";}
+       }
+       return empty+="}";
+     }
 }
