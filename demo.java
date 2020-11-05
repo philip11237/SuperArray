@@ -9,5 +9,16 @@ public class demo{
 
     System.out.println(words);
     SuperArray.removeDuplicates(words);
-    System.out.println(words);  }
+    System.out.println(words);
+
+    SuperArray a = new SuperArray();
+    a.add("c");   a.add("b");    a.add("b");    a.add("s");
+
+    SuperArray b = new SuperArray();
+    b.add("d");   b.add("s");    b.add("b");    b.add("b");   b.add("u");
+
+    SuperArray c = SuperArray.findOverlap(a,b);
+    System.out.println(c);
+
+  }
 }

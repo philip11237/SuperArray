@@ -101,4 +101,14 @@ public class SuperArray{
         else i++;
       }
     }
+    public static SuperArray findOverlap(SuperArray a, SuperArray b){
+      SuperArray c= new SuperArray(1);
+      for(int i=0; i<a.size();i++){
+        if (b.indexOf(a.get(i))!= -1){
+          c.add(a.get(i));
+        }
+      }
+       removeDuplicates(c);
+       return c;
+    }
   }
