@@ -102,13 +102,32 @@ public class SuperArray{
       }
     }
     public static SuperArray findOverlap(SuperArray a, SuperArray b){
-      SuperArray c= new SuperArray(1);
+      SuperArray c= new SuperArray();
       for(int i=0; i<a.size();i++){
         if (b.indexOf(a.get(i))!= -1){
           c.add(a.get(i));
         }
       }
-       removeDuplicates(c);
-       return c;
+      removeDuplicates(c);
+      return c;
+    }
+    public int lastIndexOf(String value){
+      for (int i =size-1; i>=0; i--) {
+        if ( (data[i] != null)&& (data[i].equals(value))
+        ||((value==null)&& data[i]==value)){
+          return i;
+        }
+      } return -1;
+    }
+    public boolean equals(SuperArray other){
+      if (other.size!=this.size){
+        return false;
+      }
+      for (int i= 0;i<this.size;i++){
+        if (!data[i].equals(other.data[i])){
+          return false;
+        }
+      }
+      return true;
     }
   }
