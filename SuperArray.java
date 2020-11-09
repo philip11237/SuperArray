@@ -93,24 +93,7 @@ public class SuperArray{
       }
       return returndata;
     }
-    public static void removeDuplicates(SuperArray s){
-      for (int i =0; i <s.size();) {
-        if (s.indexOf(s.get(i)) !=i){
-          s.remove(i);
-        }
-        else i++;
-      }
-    }
-    public static SuperArray findOverlap(SuperArray a, SuperArray b){
-      SuperArray c= new SuperArray();
-      for(int i=0; i<a.size();i++){
-        if (b.indexOf(a.get(i))!= -1){
-          c.add(a.get(i));
-        }
-      }
-      removeDuplicates(c);
-      return c;
-    }
+
     public int lastIndexOf(String value){
       for (int i =size-1; i>=0; i--) {
         if ( (data[i] != null)&& (data[i].equals(value))
