@@ -7,6 +7,9 @@ public class SuperArray{
   }
   public SuperArray(int initialCapacity){
     size=0;
+    if (initialCapacity<0){
+      throw new IllegalArgumentException();
+    }
     data= new String[initialCapacity];
   }
   public int size(){
@@ -21,10 +24,16 @@ public class SuperArray{
     return true;
   }
   public String get(int index){
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException();
+    }
     return data[index];
   }
   public String set(int index, String element){
-    String temp=data[index];
+    if  (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException();
+    }
+      String temp=data[index];
     data[index]=element;
     return temp;
   }
@@ -60,6 +69,9 @@ public class SuperArray{
       return false;
     }
     public void add(int index, String element){
+      if  (index < 0 || index > size()){
+        throw new IndexOutOfBoundsException();
+      }
       if (size==data.length){
         resize();
       }
@@ -70,6 +82,9 @@ public class SuperArray{
       size++;
     }
     public String remove(int index){
+      if  (index < 0 || index >= size()){
+        throw new IndexOutOfBoundsException();
+      }
       String temp=data[index];
       for (int i =index; i <size-1; i++) {
         data[i]=data[i+1];
